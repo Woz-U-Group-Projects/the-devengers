@@ -9,6 +9,8 @@ import { BodyComponent } from './components/body/body.component';
 import { FootageComponent } from './components/footage/footage.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { LoginComponent } from './components/account/login/login.component';
+import { SubscribeComponent } from './components/account/subscribe/subscribe.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { PostsComponent } from './components/posts/posts.component';
     BodyComponent,
     FootageComponent,
     NavigationComponent,
-    PostsComponent
+    PostsComponent,
+    LoginComponent,
+    SubscribeComponent
   ],
   imports: [
     BrowserModule,
