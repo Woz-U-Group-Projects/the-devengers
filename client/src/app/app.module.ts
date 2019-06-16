@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BodyComponent } from './components/body/body.component';
 import { FootageComponent } from './components/footage/footage.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     BodyComponent,
-    FootageComponent
+    FootageComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
