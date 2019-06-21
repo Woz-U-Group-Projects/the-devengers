@@ -1,5 +1,13 @@
 <app-nav-bar></app-nav-bar>
 <app-navigation></app-navigation>
 <app-body></app-body>
+
+<div>
+    <div>
+        <h2>Ping Pong User Data Path</h2>
+        <h3>{{staticPath}}</h3>
+    </div>
+    <app-users [dataPath]="staticPath"></app-users>
+</div>
 <app-footage></app-footage>
 
