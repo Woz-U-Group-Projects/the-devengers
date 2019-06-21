@@ -20,6 +20,11 @@ module.exports = (sequelize, DataTypes) => {
         unique: true
       },
       Password: DataTypes.STRING,
+      Level: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        unique: false
+      },
       createdAt: DataTypes.DATE,
       updatedAt: DataTypes.DATE
     },

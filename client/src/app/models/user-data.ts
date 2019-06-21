@@ -4,5 +4,6 @@ export class UserData {
     lastname: string;
     email: string;
     username: string;
+    level: string;
 
 }
