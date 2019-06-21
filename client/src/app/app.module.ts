@@ -11,6 +11,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { PostsComponent } from './components/posts/posts.component';
 import { LoginComponent } from './components/account/login/login.component';
 import { SubscribeComponent } from './components/account/subscribe/subscribe.component';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SubscribeComponent } from './components/account/subscribe/subscribe.com
     NavigationComponent,
     PostsComponent,
     LoginComponent,
-    SubscribeComponent
+    SubscribeComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

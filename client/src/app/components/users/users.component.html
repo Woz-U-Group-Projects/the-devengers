@@ -1,0 +1,17 @@
+<h2>Data Retrieval Table</h2>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Username</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.UserID}}</td>
+            <td>{{user.FirstName}} {{user.LastName}}</td>
+            <td>{{user.Email}}</td>
+            <td>{{user.Username}}</td>
+        </tr>
+    </tbody>
+</table>
