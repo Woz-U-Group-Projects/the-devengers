@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'client';
+  staticPath: string = 'http://localhost:3001/users';
 }
