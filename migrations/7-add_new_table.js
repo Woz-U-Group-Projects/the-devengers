@@ -5,19 +5,19 @@ var Sequelize = require('sequelize');
 /**
  * Actions summary:
  *
- * addColumn "Level" to table "users"
+ * changeColumn "Level" on table "users"
  *
  **/
 
 var info = {
-    "revision": 2,
-    "name": "add-level",
-    "created": "2019-06-21T18:54:04.461Z",
+    "revision": 7,
+    "name": "add_new_table",
+    "created": "2019-06-21T20:37:51.840Z",
     "comment": ""
 };
 
 var migrationCommands = [{
-    fn: "addColumn",
+    fn: "changeColumn",
     params: [
         "users",
         "Level",

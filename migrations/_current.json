@@ -4,14 +4,15 @@
             "tableName": "posts",
             "schema": {
                 "PostId": {
-                    "autoIncrement": true,
                     "allowNull": false,
+                    "autoIncrement": true,
                     "primaryKey": true,
                     "field": "PostId",
                     "seqType": "Sequelize.INTEGER"
                 },
                 "PostTitle": {
                     "allowNull": false,
+                    "unique": false,
                     "field": "PostTitle",
                     "seqType": "Sequelize.STRING"
                 },
@@ -21,7 +22,6 @@
                     "seqType": "Sequelize.STRING"
                 },
                 "Username": {
-                    "unique": true,
                     "allowNull": false,
                     "field": "Username",
                     "seqType": "Sequelize.STRING"
@@ -73,7 +73,6 @@
                 },
                 "Level": {
                     "allowNull": true,
-                    "unique": false,
                     "field": "Level",
                     "seqType": "Sequelize.STRING"
                 },
@@ -89,5 +88,5 @@
             "indexes": []
         }
     },
-    "revision": 4
+    "revision": 7
 }

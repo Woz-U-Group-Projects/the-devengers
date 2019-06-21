@@ -5,27 +5,27 @@ var Sequelize = require('sequelize');
 /**
  * Actions summary:
  *
- * changeColumn "Level" on table "users"
+ * changeColumn "PostTitle" on table "posts"
  *
  **/
 
 var info = {
-    "revision": 3,
-    "name": "add-Level-again",
-    "created": "2019-06-21T18:56:21.993Z",
+    "revision": 6,
+    "name": "make_posts_table",
+    "created": "2019-06-21T20:26:06.149Z",
     "comment": ""
 };
 
 var migrationCommands = [{
     fn: "changeColumn",
     params: [
-        "users",
-        "Level",
+        "posts",
+        "PostTitle",
         {
             "type": Sequelize.STRING,
-            "field": "Level",
+            "field": "PostTitle",
             "unique": false,
-            "allowNull": true
+            "allowNull": false
         }
     ]
 }];

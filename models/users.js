@@ -23,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
       Level: {
         type: DataTypes.STRING,
         allowNull: true,
-        unique: false
       },
       createdAt: DataTypes.DATE,
       updatedAt: DataTypes.DATE
