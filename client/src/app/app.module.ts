@@ -4,33 +4,35 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BodyComponent } from './components/body/body.component';
 import { FootageComponent } from './components/footage/footage.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { LoginComponent } from './components/account/login/login.component';
 import { SubscribeComponent } from './components/account/subscribe/subscribe.component';
-import { UsersComponent } from './components/users/users.component';
+
+import { UsersService } from './services/users.service';
+import { SignupComponent } from './components/account/signup/signup.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ProfileComponent } from './components/account/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
     BodyComponent,
     FootageComponent,
-    NavigationComponent,
     PostsComponent,
     LoginComponent,
     SubscribeComponent,
-    UsersComponent
+    SignupComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
