@@ -1,15 +1,35 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { SignupComponent } from './components/account/signup/signup.component';
-import { LoginComponent } from './components/account/login/login.component';
-import { ProfileComponent } from './components/account/profile/profile.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PostsComponent } from './posts/posts.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: 'signup', component: SignupComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'profile', component: ProfileComponent},
-  { path: '', pathMatch: "full", redirectTo: "http://localhost:4200" }
+  {
+    path: 'posts',
+    component: PostsComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '',
+    redirectTo: 'http://localhost:4200',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
