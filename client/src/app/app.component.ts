@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { UsersService } from './services/users.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { UsersService } from './users.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,11 @@ import { UsersService } from './services/users.service';
 })
 export class AppComponent  implements OnInit {
 
-  constructor(private usersService: UsersService) {
+  constructor(public usersService: UsersService) {
 
   }
 
-  ngOnInit () {
-    this.usersService.validateToken().subscribe(response => {
-      this.usersService.loggedIn = response;
-    })
+  ngOnInit() {
+
   }
 }

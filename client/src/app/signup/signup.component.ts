@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../../models/user';
-import { UsersService } from '../../../services/users.service';
+import { User } from '../models/user';
+import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,12 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  user: User = new User();
+
+  signupUserData: User = new User();
 
   constructor(private usersService: UsersService, private router: Router) { }
 
   onSignup(): void {
-    this.usersService.signupUser(this.user);
+    console.log(this.signupUserData);
+    this.usersService.signupUser(this.signupUserData);
+    this.router.navigate(['/login']);
   }
 
   ngOnInit() {

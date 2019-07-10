@@ -1,30 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { BodyComponent } from './components/body/body.component';
-import { FootageComponent } from './components/footage/footage.component';
-import { PostsComponent } from './components/posts/posts.component';
-import { LoginComponent } from './components/account/login/login.component';
-import { SubscribeComponent } from './components/account/subscribe/subscribe.component';
+import { LoginComponent } from './login/login.component';
 
-import { UsersService } from './services/users.service';
-import { SignupComponent } from './components/account/signup/signup.component';
+import { UsersService } from './users.service';
+import { SignupComponent } from './signup/signup.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProfileComponent } from './components/account/profile/profile.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PostsService } from './posts.service';
+import { PostsComponent } from './posts/posts.component';
+import { AuthGuard } from './auth.guard';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BodyComponent,
-    FootageComponent,
-    PostsComponent,
     LoginComponent,
-    SubscribeComponent,
     SignupComponent,
-    ProfileComponent
+    ProfileComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +29,15 @@ import { ProfileComponent } from './components/account/profile/profile.component
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [UsersService],
+  providers: [
+    UsersService,
+    PostsService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
