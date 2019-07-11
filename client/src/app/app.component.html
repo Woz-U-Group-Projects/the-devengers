@@ -1,24 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Ping-Pong</a>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Ping-Pong</a>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/posts" routerLinkActive="active">Posts</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav">
-        <a *ngIf="!usersService.loggedIn()" class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-        <a *ngIf="!usersService.loggedIn()" class="nav-link" routerLink="/signup" routerLinkActive="active">Signup</a>
-        <a *ngIf="usersService.loggedIn()" class="nav-link" routerLink="/profile" routerLinkActive="active" (click)="usersService.getProfile()">Profile</a>
-        <a *ngIf="usersService.loggedIn()" class="nav-link" style="cursor: pointer" (click)="usersService.logoutUser()">Logout</a>
-    </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/posts" routerLinkActive="active">Posts</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+              <a *ngIf="!usersService.loggedIn()" class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+              <a *ngIf="!usersService.loggedIn()" class="nav-link" routerLink="/signup" routerLinkActive="active">Signup</a>
+              <a *ngIf="usersService.loggedIn()" class="nav-link" routerLink="/profile" routerLinkActive="active" (click)="usersService.getProfile()">Profile</a>
+              <a *ngIf="usersService.loggedIn()" class="nav-link" style="cursor: pointer" (click)="usersService.logoutUser()">Logout</a>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </div>
-</nav>
+</div>
 <div class="container">
   <router-outlet></router-outlet>
 </div>
