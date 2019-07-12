@@ -17,8 +17,8 @@
           <ul class="navbar-nav">
               <a *ngIf="!usersService.loggedIn()" class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
               <a *ngIf="!usersService.loggedIn()" class="nav-link" routerLink="/signup" routerLinkActive="active">Signup</a>
-              <a *ngIf="usersService.loggedIn()" class="nav-link" routerLink="/profile" routerLinkActive="active" (click)="usersService.getProfile()">Profile</a>
-              <a *ngIf="usersService.loggedIn()" class="nav-link" style="cursor: pointer" (click)="usersService.logoutUser()">Logout</a>
+              <a *ngIf="usersService.loggedIn()" class="nav-link" routerLink="/profile" routerLinkActive="active">Profile</a>
+              <a *ngIf="usersService.loggedIn()" class="nav-link" style="cursor: pointer" (click)="logoutUser()">Logout</a>
           </ul>
         </div>
       </nav>

@@ -15,9 +15,9 @@ export class SignupComponent implements OnInit {
   constructor(private usersService: UsersService, private router: Router) { }
 
   onSignup(): void {
-    console.log(this.signupUserData);
-    this.usersService.signupUser(this.signupUserData);
-    this.router.navigate(['/login']);
+    this.usersService.signupUser(this.signupUserData).subscribe( () => {
+      this.router.navigate(['/login']);
+    });
   }
 
   ngOnInit() {

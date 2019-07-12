@@ -27,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'http://localhost:4200',
+    redirectTo: 'posts',
     pathMatch: 'full'
   }
 ];
