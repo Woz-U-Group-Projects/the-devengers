@@ -13,7 +13,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { PostsService } from './posts.service';
 import { PostsComponent } from './posts/posts.component';
 import { AuthGuard } from './auth.guard';
-import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -32,11 +31,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
   providers: [
     UsersService,
     PostsService,
-    AuthGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
-      multi: true}
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

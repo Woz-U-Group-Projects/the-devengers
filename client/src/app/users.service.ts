@@ -1,54 +1,36 @@
 import { Injectable } from '@angular/core';
 import { User } from './models/user';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
 
-  options = { withCredentials: true };
-
   constructor(private http: HttpClient, private router: Router) { }
 
+  options = { withCredentials: true };
 
-
-  signupUser(user: User) {
-    return this.http.post<{token: string}>('http://localhost:3001/users/signup', user, this.options)
-    .subscribe( response => {
-      localStorage.setItem('token', response.token);
-      console.log(response);
-      },
-        err => console.log(err)
-    );
+  signupUser(user: User): Observable<string> {
+    return this.http.post<string>('http://localhost:3001/users/signup', user, this.options);
   }
 
-  loginUser(user: User) {
-    this.http.post<{token: string}>('http://localhost:3001/users/login', user, this.options)
-    .subscribe(response => {
-      localStorage.setItem('token', response.token);
-      console.log(response);
-    },
-    err => console.log(err)
-    );
+  loginUser(user: User): Observable<string> {
+    return this.http.post<string>('http://localhost:3001/users/login', user, this.options);
   }
 
   loggedIn() {
-    return !!localStorage.getItem('token');
+    return !!document.cookie;
   }
 
   getProfile(): Observable<User> {
     return this.http.get<User>('http://localhost:3001/users/profile', this.options);
   }
 
-  logoutUser() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/posts']);
+  logoutUser(): Observable<string> {
+    return this.http.get<string>('http://localhost:3001/users/logout', this.options);
   }
 
-  getToken() {
-    return localStorage.getItem('token');
-  }
 
   validateToken(): Observable<boolean> {
     return this.http.get<boolean>('http://localhost:3001/users/validateToken', this.options);

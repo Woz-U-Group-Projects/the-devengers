@@ -5,7 +5,7 @@ var authService = require('../services/auth');
 const jwt = require('jsonwebtoken');
 
 /* GET users listing. */
-router.get('/', verifyToken, function(req, res, next) {
+router.get('/', function(req, res, next) {
   models.users.findAll({}).then(foundUsers => {
     const mappedUsers = foundUsers.map(user => ({
       UserID: user.UserId,
@@ -18,21 +18,7 @@ router.get('/', verifyToken, function(req, res, next) {
   });
 });
 
-function verifyToken(req, res, next) { //verify if authorization key is present part of the headers
-  if (!req.headers.authorization) { // if no present
-    return res.status(401).send('Unauthorized request')
-  } 
-  let token = req.headers.authorization.split(' ')[1]
-  if (token === 'null') {
-    return res.status(401).send('Unauthorized request')
-  }
-  let payload = jwt.verify(token, 'secretKey')
-  if (!payload) {
-    return res.status(401).send('Unauthorized request')
-  }
-  req.userId = payload.subject;
-  next();
-}
+
 
 //SIGNUP
 router.post('/signup', function(req, res, next) {
@@ -62,30 +48,30 @@ router.post('/signup', function(req, res, next) {
 });
 
 // LOGIN
-router.post('/login', function (req, res, next) {
-  models.users.findOne({
-    where: {
-      Username: req.body.username
-    }
-  }).then(user => {
-    if (!user) {
-      console.log('User not found')
-      return res.status(401).json({
-        message: "Login Failed"
-      });
-    } else {
-      let passwordMatch = authService.comparePasswords(req.body.password, user.Password);
-      if (passwordMatch) {
-        let payload = { subject: user.UserId};
-        let token = jwt.sign(payload, 'secretKey');
-        console.log(token);
-        res.status(200).send({token});
-      } else {
-        console.log('Wrong password');
-        res.send('Wrong password');
+router.post("/login", function(req, res, next) {
+  models.users
+    .findOne({
+      where: {
+        username: req.body.username
       }
-    }
-  });
+    })
+    .then(user => {
+      if (!user) {
+        console.log("User not found");
+        return res.status(401).json("Login Failed");
+      } else {
+        let passwordMatch = authService.comparePasswords(req.body.password, user.Password
+        );
+        if (passwordMatch) {
+          let token = authService.signUser(user);
+          res.cookie("jwt", token);
+          res.status(200).json({token});
+        } else {
+          console.log("Wrong password");
+          res.json("Wrong password");
+        }
+      }
+    });
 });
 
 //PROFILE
@@ -95,7 +81,9 @@ router.get('/profile', function (req, res, next) {
     authService.verifyUser(token)
       .then(user => {
         if (user) {
+          console.log(user);
           res.send(JSON.stringify(user));
+          
         } else {
           res.status(401);
           res.send('Invalid authentication token');
@@ -104,6 +92,26 @@ router.get('/profile', function (req, res, next) {
   } else {
     res.status(401);
     res.send('Must be logged in');
+  }
+});
+
+router.get("/logout", function(req, res, next) {
+  res.cookie("jwt", "", { expires: new Date(0) });
+  res.json("Logged out");
+});
+
+router.get("/validateToken", function(req, res, next) {
+  let token = req.cookies.jwt;
+  if (token) {
+    authService.verifyUser(token).then(user => {
+      if (user) {
+        res.json(true);
+      } else {
+        res.json(false);
+      }
+    });
+  } else {
+    res.json(false);
   }
 });
 

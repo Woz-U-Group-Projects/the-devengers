@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { UsersService } from './users.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,11 +10,19 @@ import { UsersService } from './users.service';
 })
 export class AppComponent  implements OnInit {
 
-  constructor(public usersService: UsersService) {
+  constructor(public usersService: UsersService,
+              private router: Router) {
 
   }
 
   ngOnInit() {
 
+  }
+
+  logoutUser() {
+    this.usersService.logoutUser().subscribe(() => {
+      this.usersService.loggedIn();
+      this.router.navigate(['/posts']);
+    });
   }
 }

@@ -17,9 +17,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLogin() {
-    this.usersService.loginUser(this.loginUserData);
-    console.log(this.loginUserData);
-    this.router.navigate(['/posts']);
+  onLogin(): void {
+    this.usersService.loginUser(this.loginUserData).subscribe(() => {
+      this.usersService.getProfile().subscribe(() => {
+        this.usersService.loggedIn();
+        this.router.navigate(['/profile']);
+      });
+    });
   }
 }
