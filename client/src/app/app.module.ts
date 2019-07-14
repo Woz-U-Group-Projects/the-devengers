@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -14,6 +14,7 @@ import { PostsService } from './posts.service';
 import { AuthGuard } from './auth.guard';
 import { PostComponent } from './posts/post/post.component';
 import { BlogComponent } from './posts/blog/blog.component';
+import { FootageComponent } from './footage/footage.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BlogComponent } from './posts/blog/blog.component';
     ProfileComponent,
     PostComponent,
     BlogComponent,
+    FootageComponent
   ],
   imports: [
     BrowserModule,

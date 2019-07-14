@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "Password1!",
-    "database": "ping-pong",
+    "password": "server",
+    "database": "pingpong",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
