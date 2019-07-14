@@ -1,6 +1,6 @@
 export class Post {
-  id: number;
-  title: string;
-  description: string;
-  date: Date;
+  PostId: number;
+  PostTitle: string;
+  Description: string;
+  Username: string;
 }

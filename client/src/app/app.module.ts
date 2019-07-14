@@ -11,8 +11,9 @@ import { SignupComponent } from './signup/signup.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { PostsService } from './posts.service';
-import { PostsComponent } from './posts/posts.component';
 import { AuthGuard } from './auth.guard';
+import { PostComponent } from './posts/post/post.component';
+import { BlogComponent } from './posts/blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthGuard } from './auth.guard';
     LoginComponent,
     SignupComponent,
     ProfileComponent,
-    PostsComponent
+    PostComponent,
+    BlogComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,13 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
-import { PostsComponent } from './posts/posts.component';
+import { BlogComponent } from './posts/blog/blog.component';
 import { AuthGuard } from './auth.guard';
+import { PostComponent } from './posts/post/post.component';
 
 const routes: Routes = [
   {
     path: 'posts',
-    component: PostsComponent
+    component: BlogComponent
   },
   {
     path: 'signup',
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'post',
+    component: PostComponent,
     canActivate: [AuthGuard]
   },
   {

@@ -115,47 +115,47 @@ router.get("/validateToken", function(req, res, next) {
   }
 });
 
-router.get('/posts', (req, res) => {
-  let posts = [
-    {
-      "_id": "1",
-      "title": "Auto Expo",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
-    },
-    {
-      "_id": "2",
-      "title": "Auto Expo",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
-    },
-    {
-      "_id": "3",
-      "title": "Auto Expo",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
-    },
-    {
-      "_id": "4",
-      "title": "Auto Expo",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
-    },
-    {
-      "_id": "5",
-      "title": "Auto Expo",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
-    },
-    {
-      "_id": "6",
-      "title": "Auto Expo",
-      "description": "lorem ipsum",
-      "date": "2012-04-23T18:25:43.511Z"
-    }
-  ];
-  res.json(posts);
-});
+// router.get('/posts', (req, res) => {
+//   let posts = [
+//     {
+//       "_id": "1",
+//       "title": "Auto Expo",
+//       "description": "lorem ipsum",
+//       "date": "2012-04-23T18:25:43.511Z"
+//     },
+//     {
+//       "_id": "2",
+//       "title": "Auto Expo",
+//       "description": "lorem ipsum",
+//       "date": "2012-04-23T18:25:43.511Z"
+//     },
+//     {
+//       "_id": "3",
+//       "title": "Auto Expo",
+//       "description": "lorem ipsum",
+//       "date": "2012-04-23T18:25:43.511Z"
+//     },
+//     {
+//       "_id": "4",
+//       "title": "Auto Expo",
+//       "description": "lorem ipsum",
+//       "date": "2012-04-23T18:25:43.511Z"
+//     },
+//     {
+//       "_id": "5",
+//       "title": "Auto Expo",
+//       "description": "lorem ipsum",
+//       "date": "2012-04-23T18:25:43.511Z"
+//     },
+//     {
+//       "_id": "6",
+//       "title": "Auto Expo",
+//       "description": "lorem ipsum",
+//       "date": "2012-04-23T18:25:43.511Z"
+//     }
+//   ];
+//   res.json(posts);
+// });
 
 
 module.exports = router;
